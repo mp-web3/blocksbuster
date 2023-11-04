@@ -1,0 +1,3 @@
+`https://gnews.io/api/v4/search?q=blockchain&lang=en&country=us&max=10&apikey=${process.env.NEXT_PUBLIC_GNEWS_API_KEY}`
+`https://gnews.io/api/v4/search?q=blockchain&lang=en&country=us&max=10&in=title&sortby=publishedAt&apikey=${process.env.NEXT_PUBLIC_GNEWS_API_KEY}`
+`https://gnews.io/api/v4/search?q=blockchain&lang=en&country=us&max=10&in=title&sortby=publishedAt&apikey=${apiKey}`
