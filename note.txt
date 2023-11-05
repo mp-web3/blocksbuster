@@ -13,3 +13,6 @@ UCAl9Ld79qaZxp9JzEOwd3aA
 
 Alchemy ID YouTube
 UCtvTdPZWUwW4whk9CLlCBug
+
+MongoDB connection string
+const uri = "mongodb+srv://mpweb3t:<password>@cluster1.4qofdqd.mongodb.net/?retryWrites=true&w=majority";
