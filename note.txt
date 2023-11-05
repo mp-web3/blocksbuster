@@ -2,8 +2,14 @@
 `https://gnews.io/api/v4/search?q=blockchain&lang=en&country=us&max=10&in=title&sortby=publishedAt&apikey=${process.env.NEXT_PUBLIC_GNEWS_API_KEY}`
 `https://gnews.io/api/v4/search?q=blockchain&lang=en&country=us&max=10&in=title&sortby=publishedAt&apikey=${apiKey}`
 
-Bankless Show Link
+Bankless Show Link Spotify
 https://open.spotify.com/show/41TNnXSv5ExcQSzEGLlGhy?si=792bcb5aaa1b42ac
 
-Bankless Show ID
+Bankless Show ID Spotify
 41TNnXSv5ExcQSzEGLlGhy
+
+Bankless Show ID YouTube
+UCAl9Ld79qaZxp9JzEOwd3aA
+
+Alchemy ID YouTube
+UCtvTdPZWUwW4whk9CLlCBug
