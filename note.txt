@@ -16,3 +16,9 @@ UCtvTdPZWUwW4whk9CLlCBug
 
 MongoDB connection string
 const uri = "mongodb+srv://mpweb3t:<password>@cluster1.4qofdqd.mongodb.net/?retryWrites=true&w=majority";
+
+MongoDB uri
+"mongodb+srv://mpweb3t${process.env.NEXT_MONGODB_PASSWORD}@cluster1.4qofdqd.mongodb.net/?retryWrites=true&w=majority";
+
+Cluster Name
+cluster1.4qofdqd
