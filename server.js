@@ -4,13 +4,15 @@ const port = 4000; // Choose the port you prefer
 const { MongoClient } = require("mongodb");
 const cron = require("node-cron");
 const axios = require("axios");
-const path = require("path");
-require("dotenv").config({ path: path.join(__dirname, "../.env") });
+require("dotenv").config();
+
+// const path = require("path");
+// require("dotenv").config({ path: path.join(__dirname, "../.env") });
 
 app.use(express.json());
 
 // Define MongoDB URI and create a MongoDB client
-const uri = `mongodb+srv://mpweb3t:zhc6NKY0bep4eyb-rcf@cluster1.4qofdqd.mongodb.net/?retryWrites=true&w=majority`; // Replace with your MongoDB URI
+const uri = `mongodb+srv://mpweb3t:${process.env.NEXT_MONGODB_PASSWORD}@cluster1.4qofdqd.mongodb.net/?retryWrites=true&w=majority`; // Replace with your MongoDB URI
 const client = new MongoClient(uri, { useNewUrlParser: true });
 let db; // A reference to the MongoDB database
 
@@ -44,28 +46,22 @@ async function fetchYouTubeData() {
 
   for (const channelId of CHANNEL_IDS) {
     const response = await axios.get(
-      `https://www.googleapis.com/youtube/v3/search?key=${process.env.NEXT_PUBLIC_YOUTUBE_API_KEY}&channelId=${channelId}&part=snippet,id&order=date&maxResults=10&type=video`
+      `https://www.googleapis.com/youtube/v3/search?key=${process.env.NEXT_PUBLIC_YOUTUBE_API_KEY}&channelId=${channelId}&part=snippet&order=date&maxResults=10&type=video`
     );
 
     const data = response.data;
 
     for (const video of data.items) {
       const videoId = video.id.videoId;
-      const videoDetailsResponse = await axios.get(
-        `https://www.googleapis.com/youtube/v3/videos?key=${NEXT_PUBLIC_YOUTUBE_API_KEY}&id=${videoId}&part=contentDetails`
-      );
+      const snippet = video.snippet;
 
-      const videoDetails = videoDetailsResponse.data.items[0];
-      const duration = videoDetails.contentDetails.duration;
-      const isLongVideo = parseISO8601Duration(duration) >= 300; // 300 seconds = 5 minutes
-
-      if (isLongVideo) {
+      if (snippet.description != "") {
         videoList.push({
           id: videoId,
-          snippet: video.snippet,
-          title: title,
-          description: description,
-          publishedAt: video.snippet.publishedAt,
+          title: snippet.title,
+          channelTitle: snippet.channelTitle,
+          description: snippet.description,
+          publishedAt: snippet.publishedAt,
         });
       }
     }
@@ -79,10 +75,7 @@ async function fetchYouTubeData() {
   await videoCollection.insertMany(videoList);
   console.log("Fetched and saved videos to MongoDB");
 
-  fetchYouTubeData();
   // Define a cron job to fetch YouTube data every 12 hours
-  cron.schedule("0 */12 * * *", async () => {
-    fetchYouTubeData();
-  });
-
 }
+
+fetchYouTubeData();

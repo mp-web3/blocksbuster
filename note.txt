@@ -22,3 +22,45 @@ MongoDB uri
 
 Cluster Name
 cluster1.4qofdqd
+
+// Define a cron job to fetch YouTube data every 12 hours
+  cron.schedule("0 */12 * * *", async () => {
+     fetchYouTubeData();
+    });
+
+
+SNIPPET EXAMPLE
+{
+      "kind": "youtube#searchResult",
+      "etag": "A4FP0jsNflv0PKVfDJcvdKtLeBM",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "YRFF8EXw-Z4"
+      },
+      "snippet": {
+        "publishedAt": "2023-05-21T21:39:54Z",
+        "channelId": "UCAl9Ld79qaZxp9JzEOwd3aA",
+        "title": "Is Ledger Safe?",
+        "description": "Is Ledger safe? Ryan and David explain #shorts More content is waiting for you on Bankless.com ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/YRFF8EXw-Z4/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/YRFF8EXw-Z4/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/YRFF8EXw-Z4/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "Bankless",
+        "liveBroadcastContent": "none",
+        "publishTime": "2023-05-21T21:39:54Z"
+      }
+    },
