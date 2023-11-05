@@ -1,15 +1,14 @@
 const express = require("express");
 const app = express();
-const port = 4000; // Choose the port you prefer
+const port = 4000;
+const cors = require("cors");
 const { MongoClient } = require("mongodb");
 const cron = require("node-cron");
 const axios = require("axios");
 require("dotenv").config();
 
-// const path = require("path");
-// require("dotenv").config({ path: path.join(__dirname, "../.env") });
-
 app.use(express.json());
+app.use(cors());
 
 // Define MongoDB URI and create a MongoDB client
 const uri = `mongodb+srv://mpweb3t:${process.env.NEXT_MONGODB_PASSWORD}@cluster1.4qofdqd.mongodb.net/?retryWrites=true&w=majority`; // Replace with your MongoDB URI
@@ -76,6 +75,25 @@ async function fetchYouTubeData() {
   console.log("Fetched and saved videos to MongoDB");
 
   // Define a cron job to fetch YouTube data every 12 hours
+  // cron.schedule("0 */12 * * *", async () => {
+  //   fetchYouTubeData();
+  // });
 }
 
-fetchYouTubeData();
+// fetchYouTubeData();
+
+// Define an Express route to serve the videos
+app.get("/api/youtube-videos", async (req, res) => {
+  try {
+    const videoCollection = db.collection("videos"); // Replace 'videos' with your collection name
+    const videos = await videoCollection.find().toArray();
+    res.json(videos);
+  } catch (error) {
+    console.error("Error fetching videos", error);
+    res.status(500).json({ error: "Failed to fetch videos" });
+  }
+});
+
+app.listen(port, () => {
+  console.log("Server is running on port 4000");
+});
