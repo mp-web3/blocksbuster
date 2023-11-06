@@ -35,7 +35,7 @@ cluster1.4qofdqd
     });
 
 
-SNIPPET EXAMPLE
+SNIPPET EXAMPLE YOUTUBE 
 {
       "kind": "youtube#searchResult",
       "etag": "A4FP0jsNflv0PKVfDJcvdKtLeBM",
