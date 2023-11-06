@@ -28,24 +28,19 @@ async function connectToMongoDB() {
 
 connectToMongoDB();
 
-const parseISO8601Duration = (duration) => {
-  const match = duration.match(/PT(\d+H)?(\d+M)?(\d+S)?/);
-
-  const hours = match[1] ? parseInt(match[1]) : 0;
-  const minutes = match[2] ? parseInt(match[2]) : 0;
-  const seconds = match[3] ? parseInt(match[3]) : 0;
-
-  return hours * 3600 + minutes * 60 + seconds;
-};
-
 // YouTube Data Fetching Logic
 async function fetchYouTubeData() {
-  const CHANNEL_IDS = ["UCAl9Ld79qaZxp9JzEOwd3aA", "UCtvTdPZWUwW4whk9CLlCBug"];
+  const CHANNEL_IDS = [
+    "UCAl9Ld79qaZxp9JzEOwd3aA",
+    "UCtvTdPZWUwW4whk9CLlCBug",
+    "UCTHq3W46BiAYjKUYZq2qm-Q",
+  ];
   const videoList = [];
 
   for (const channelId of CHANNEL_IDS) {
     const response = await axios.get(
-      `https://www.googleapis.com/youtube/v3/search?key=${process.env.NEXT_PUBLIC_YOUTUBE_API_KEY}&channelId=${channelId}&part=snippet&order=date&maxResults=10&type=video`
+      // `https://www.googleapis.com/youtube/v3/search?key=${process.env.NEXT_PUBLIC_YOUTUBE_API_KEY}&channelId=${channelId}&part=snippet&order=date&maxResults=10&type=video`
+      `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&order=date&regionCode=IT&type=video&videoDuration=long&key=${process.env.NEXT_PUBLIC_YOUTUBE_API_KEY}`
     );
 
     const data = response.data;
@@ -53,16 +48,13 @@ async function fetchYouTubeData() {
     for (const video of data.items) {
       const videoId = video.id.videoId;
       const snippet = video.snippet;
-
-      if (snippet.description != "") {
-        videoList.push({
-          id: videoId,
-          title: snippet.title,
-          channelTitle: snippet.channelTitle,
-          description: snippet.description,
-          publishedAt: snippet.publishedAt,
-        });
-      }
+      videoList.push({
+        id: videoId,
+        title: snippet.title,
+        channelTitle: snippet.channelTitle,
+        description: snippet.description,
+        publishedAt: snippet.publishedAt,
+      });
     }
   }
 
@@ -80,7 +72,7 @@ async function fetchYouTubeData() {
   // });
 }
 
-// fetchYouTubeData();
+fetchYouTubeData();
 
 // Define an Express route to serve the videos
 app.get("/api/youtube-videos", async (req, res) => {

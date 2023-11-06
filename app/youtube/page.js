@@ -25,8 +25,6 @@ const YouTubeVideoPage = () => {
     <div>
       {videos.map((video) => (
         <div key={video.id}>
-          <h3>{video.title}</h3>
-          <p>{video.description}</p>
           <iframe
             title={video.title}
             width="560"
@@ -35,6 +33,11 @@ const YouTubeVideoPage = () => {
             frameBorder="0"
             allowFullScreen
           ></iframe>
+          <h3>{video.title}</h3>
+          <p>{video.description}</p>
+          <div>
+            {video.publishedAt} | {video.channelTitle}
+          </div>
         </div>
       ))}
     </div>
