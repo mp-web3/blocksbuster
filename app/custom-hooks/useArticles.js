@@ -23,7 +23,8 @@ const useArticles = () => {
             description: article.description,
             publishedAt: article.publishedAt,
             author: article.author,
-            image: article.image,
+              image: article.image,
+            url: article.url,
           }))
         );
         setLoading(false);

@@ -26,7 +26,7 @@ async function connectToMongoDB() {
     // fetch YouTube Data
     //fetchYouTubeData();
     // fetch Gnews articles
-    //fetchNews();
+    fetchNews();
   } catch (err) {
     console.error("Error connecting to MongoDB:", err);
   }
@@ -109,6 +109,7 @@ async function fetchNews() {
       publishedAt: article.publishedAt,
       author: article.source.name,
       image: article.image,
+      url: article.url,
     });
   }
 
