@@ -11,7 +11,7 @@ const useArticles = () => {
     const fetchArticles = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/gnews-articles`
+          "http://localhost:5000/api/gnews-articles"
         );
           const articles = response.data;
           

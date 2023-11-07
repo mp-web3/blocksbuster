@@ -24,7 +24,7 @@ async function connectToMongoDB() {
     console.log("Connected to MongoDB");
 
     // fetch YouTube Data
-    //fetchYouTubeData();
+    fetchYouTubeData();
     // fetch Gnews articles
     fetchNews();
   } catch (err) {
