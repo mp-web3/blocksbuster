@@ -1,16 +1,20 @@
 const ArticleCard = ({ article }) => {
   return (
-    <div className="col-span-4">
-      <div className="aspect-video relative overflow-hidden rounded-md">
-        <img className="rounded-md" src={article.image} alt={article.title} />
+    <div className="card col-span-4">
+      <div className="content-container">
+        <a href={article.url} target="_blank" rel="noopener noreferrer">
+          <img className="rounded-md" src={article.image} alt={article.title} />
+        </a>
       </div>
       <a href={article.url} target="_blank" rel="noopener noreferrer">
-        <h2>{article.title.split(" ").slice(0, 5).join(" ")}</h2>
+        <h3 class="article-title">
+          {article.title.split(" ").slice(0, 5).join(" ")}
+        </h3>
       </a>
       <p>{article.description}</p>
-      <div>
+      <h5>
         {article.publishedAt} | {article.author}
-      </div>
+      </h5>
     </div>
   );
 };

@@ -1,11 +1,9 @@
 const VideoCard = ({ video }) => {
   return (
     <div class="card col-span-4" key={video.id}>
-      <div class="video-container">
+      <div class="content-container">
         <iframe
           title={video.title}
-          width="560"
-          height="315"
           src={`https://www.youtube.com/embed/${video.id}`}
           allowFullScreen
         ></iframe>

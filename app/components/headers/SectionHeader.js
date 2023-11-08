@@ -15,5 +15,4 @@ const SectionHeader = ({ header }) => {
   );
 };
 
-
 export default SectionHeader;

@@ -10,12 +10,12 @@ const ArticleList = () => {
     if (error) return <div>Error... {error}</div>;
 
     return (
-        <main className='m-24 rounded-md grid grid-cols-4 gap-12'>
-            {articles.map((article) => (
-                <ArticleCard key={article.id} article={article} />
-            ))}
-        </main> 
-    )
+      <main class="rounded-md grid grid-cols-4 m-2 gap-4 md:grid-cols-12 md:m-32 md:gap-6">
+        {articles.map((article) => (
+          <ArticleCard key={article.id} article={article} />
+        ))}
+      </main>
+    );
 
 }
 
