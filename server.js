@@ -1,15 +1,20 @@
 const express = require("express");
-const app = express();
-const port1 = 4000;
-const port2 = 5000;
 const cors = require("cors");
 const { MongoClient } = require("mongodb");
 const cron = require("node-cron");
 const axios = require("axios");
 require("dotenv").config();
 
-app.use(express.json());
-app.use(cors());
+const appVideo = express();
+const appArticle = express();
+const port1 = 4000;
+const port2 = 5000;
+
+appVideo.use(express.json());
+appVideo.use(cors());
+
+appArticle.use(express.json());
+appArticle.use(cors());
 
 // Define MongoDB URI and create a MongoDB client
 const uri = `mongodb+srv://mpweb3t:${process.env.NEXT_MONGODB_PASSWORD}@cluster1.4qofdqd.mongodb.net/?retryWrites=true&w=majority`; // Replace with your MongoDB URI
@@ -77,10 +82,10 @@ async function fetchYouTubeData() {
 }
 
 // Define an Express route to serve the videos
-app.get("/api/youtube-videos", async (req, res) => {
+appVideo.get("/api/youtube-videos", async (req, res) => {
   try {
     const videoCollection = db.collection("fetchedvideos"); // Replace 'videos' with your collection name
-    const videos = await videoCollection.find().toArray();
+    const videos = await videoCollection.find().limit(6).toArray();
     res.json(videos);
   } catch (error) {
     console.error("Error fetching videos", error);
@@ -88,7 +93,7 @@ app.get("/api/youtube-videos", async (req, res) => {
   }
 });
 
-app.listen(port1, () => {
+appVideo.listen(port1, () => {
   console.log("Server is running on port 4000");
 });
 
@@ -125,10 +130,10 @@ async function fetchNews() {
 }
 
 // Define an Express route to serve the articles
-app.get("/api/gnews-articles", async (req, res) => {
+appArticle.get("/api/gnews-articles", async (req, res) => {
   try {
     const articleCollection = db.collection("fetchedarticles");
-    const articles = await articleCollection.find().toArray();
+    const articles = await articleCollection.find().limit(6).toArray();
     res.json(articles);
   } catch (error) {
     console.error("Error fetching articles", error);
@@ -136,6 +141,6 @@ app.get("/api/gnews-articles", async (req, res) => {
   }
 });
 
-app.listen(port2, () => {
+appArticle.listen(port2, () => {
   console.log("Server is running on port 5000");
 });
