@@ -1,3 +1,205 @@
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --font-family: "Titillium Web", sans-serif;
+  --body-large-size: 16px;
+  --body-large-line-height: 24px;
+  --body-large-letter-spacing: 0.15px;
+  --body-medium-size: 14px;
+  --body-medium-line-height: 20px;
+  --body-medium-letter-spacing: 0.25px;
+  --body-small-size: 12px;
+  --body-small-line-height: 16px;
+  --body-small-letter-spacing: 0.4px;
+
+  /* MOBILE FONTS */
+  --mobile-headline-large-size: 32px;
+  --mobile-headline-large-line-height: 40px;
+  --mobile-headline-large-weight: 900;
+  --mobile-headline-large-letter-spacing: -1.25px;
+  --mobile-title-large-size: 16px;
+  --mobile-title-large-line-height: 24px;
+  --mobile-title-large-letter-spacing: 0px;
+  --mobile-title-large-weight: 700;
+  --mobile-title-medium-size: 14px;
+  --mobile-title-medium-line-height: 20px;
+  --mobile-title-medium-letter-spacing: 0px;
+  --mobile-title-medium-weight: 700;
+  --mobile-title-small-size: 12px;
+  --mobile-title-small-line-height: 16px;
+  --mobile-title-small-letter-spacing: 0.25px;
+  --mobile-title-small-weight: 600;
+
+  /* DESKTOP FONTS */
+  --desktop-headline-large-size: 57px;
+  --desktop-headline-large-line-height: 64px;
+  --desktop-headline-large-weight: 900;
+  --desktop-headline-large-letter-spacing: -1.25px;
+  --desktop-title-medium-size: 20px;
+  --desktop-title-medium-line-height: 26px;
+  --desktop-title-medium-weight: 700;
+  --desktop-title-small-size: 14px;
+  --desktop-title-small-line-height: 20px;
+  --desktop-title-small-weight: 600;
+  --desktop-title-small-letter-spacing: 0.4px;
+
+  /* COLORS */
+  --primary: #4c02e8;
+  --secondary: #3cffd0;
+  --primary-card: #131313;
+  --on-primary-card: #ffffff;
+  --surface: #131313;
+  --tertiary: #E8B1D2;
+  --borders: #A1A1A1;
+  --hover: #181818;
+
+  /* MARGIN, SPACING & */
+  --mobile-default-padding: 16px;
+  --mobile-default-gap: 8px;
+  --desktop-default-padding: 16px;
+  --desktop-default-gap: 16px;
+
+
+}
+
+* {
+  font-family: var(--font-family);
+}
+
+main {
+  background-color: var(--surface);
+}
+
+h2 {
+  color: var(--primary);
+  font-size: var(--mobile-headline-large-size);
+  line-height: var(--mobile-headline-large-line-height);
+  font-weight: var(--mobile-headline-large-weight);
+  letter-spacing: var(--mobile-headline-large-letter-spacing);
+  text-decoration: underline;
+}
+
+h3 {
+  font-size: var(--mobile-title-large-size);
+  line-height: var(--mobile-title-large-line-height);
+  font-weight: var(--mobile-title-large-weight);
+  color: var(--on-primary-card);
+}
+
+h5 {
+  font-size: var(--mobile-title-small-size);
+  line-height: var(--mobile-title-small-line-height);
+  font-weight: var(--mobile-title-small-weight);
+  letter-spacing: var(--mobile-title-small-letter-spacing);
+  color: var(--secondary);
+}
+
+p {
+  font-size: var(--body-large-size);
+  line-height: var(--body-large-line-height);
+  letter-spacing: var(--body-large-letter-spacing);
+  color: var(--on-primary-card);
+}
+
+.section-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: var(--mobile-default-gap);
+  padding: calc(var(--mobile-default-padding)*3) var(--mobile-default-padding);
+}
+
+.article-header {
+  background-color: var(--tertiary);
+}
+.article-header h2, .article-header p{
+  color: var(--surface);
+}
+.video-header {
+  background-color: var(--primary);
+}
+.video-header h2, .video-header p{
+  color: var(--on-primary-card);
+}
+
+.card {
+  background-color: var(--primary-card);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+  border-bottom: 1px solid var(--borders);
+}
+
+.card:hover {
+  background-color: var(--hover);
+}
+
+.card p {
+  font-size: var(--body-medium-size);
+  line-height: var(--body-medium-line-height);
+  letter-spacing: var(--body-medium-letter-spacing);
+  color: var(--on-primary-card);
+}
+
+.content-container {
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio (9 / 16 * 100%) */
+}
+
+.content-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.content-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@media (min-width: 768px) {
+
+  h2 {
+  font-size: var(--desktop-headline-large-size);
+  line-height: var(--desktop-headline-large-line-height);
+  font-weight: var(--desktop-headline-large-weight);
+  letter-spacing: var(--desktop-headline-large-letter-spacing);
+}
+
+  h3 {
+    font-size: var(--desktop-title-medium-size);
+    line-height: var(--desktop-title-medium-line-height);
+    font-weight: var(--desktop-title-medium-weight);
+  }
+
+  h5 {
+    font-size: var(--desktop-title-small-size);
+    line-height: var(--desktop-title-small-line-height);
+    font-weight: var(--desktop-title-small-weight);
+    letter-spacing: var(--desktop-title-small-letter-spacing);
+  }
+
+  .section-header {
+      gap: var(--desktop-default-gap);
+      padding: calc(var(--desktop-default-padding)*8) var(--desktop-default-padding);
+  }
+
+  .card p {
+    font-size: var(--body-large-size);
+    line-height: var(--body-large-line-height);
+    letter-spacing: var(--body-large-letter-spacing);
+    color: var(--on-primary-card);
+  }
+}
