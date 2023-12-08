@@ -71,6 +71,8 @@
 
 main {
   background-color: var(--surface);
+  display: flex;
+  flex-direction: column;
 }
 
 h2 {
@@ -102,6 +104,48 @@ p {
   line-height: var(--body-large-line-height);
   letter-spacing: var(--body-large-letter-spacing);
   color: var(--on-primary-card);
+}
+
+.header-container {
+  position: fixed;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--mobile-default-padding);
+  background-color: rgba(19, 19, 19, 0); /* Transparent when not scrolled */
+  transition: background-color 0.3s ease, padding 0.3s ease;
+  z-index: 10;
+}
+
+.header-container.scrolled {
+  background-color: rgba(19, 19, 19, 0.8);  /* Semi-transparent when scrolled */
+  padding: 0 var(--desktop-default-padding);
+}
+
+.nav-bar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: var(--mobile-title-large-size);
+  font-weight: var(--mobile-title-large-weight);
+  color: var(--on-primary-card);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: var(--mobile-default-gap);
+}
+
+.nav-links li a {
+  color: var(--on-primary-card);
+  text-decoration: none;
+  font-size: var(--body-medium-size);
 }
 
 .hero-section {
@@ -219,6 +263,15 @@ p {
   height: 100%;
 }
 
+.footer-container {
+  background-color: var(--primary-card);
+  color: var(--on-primary-card);
+  text-align: center;
+  padding: 20px;
+  bottom: 0;
+  width: 100%;
+}
+
 @media (min-width: 768px) {
 
   h2 {
@@ -252,4 +305,22 @@ p {
     letter-spacing: var(--body-large-letter-spacing);
     color: var(--on-primary-card);
   }
+
+  .header-container {
+    padding: 0 var(--desktop-default-padding);
+  }
+
+  .logo {
+    font-size: var(--desktop-title-medium-size);
+  }
+
+  .nav-links li a {
+    font-size: var(--body-large-size);
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+  }
+
 }
