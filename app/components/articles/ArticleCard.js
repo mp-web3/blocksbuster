@@ -7,7 +7,7 @@ const ArticleCard = ({ article }) => {
         </a>
       </div>
       <a href={article.url} target="_blank" rel="noopener noreferrer">
-        <h3 class="article-title">
+        <h3 className="article-title">
           {article.title.split(" ").slice(0, 5).join(" ")}
         </h3>
       </a>
