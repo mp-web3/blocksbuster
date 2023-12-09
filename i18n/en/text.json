@@ -23,5 +23,24 @@
   },
   "footer": {
     "copyright": "© 2023 BlocksBuster. All rights reserved."
+  },
+  "metadata": {
+    "title": "BlocksBuster",
+    "description": "Stay updated with the latest trends and insights in blockchain technology.",
+    "keywords": "blockchain, technology, updates, news, videos, articles",
+    "og": {
+      "title": "BlocksBuster - Your Gateway to Blockchain Trends",
+      "description": "Explore the latest in blockchain technology with BlocksBuster.",
+      "siteName": "BlocksBuster",
+      "url": "http://localhost:3000/",
+      "type": "website",
+      "locale": "en_US",
+      "imageMain": {
+        "url": "@/app/public/blocksbuster-og.jpg",
+        "width": 1792,
+        "height": 1024,
+        "alt": "Blockchains on the foreground and world on the background"
+      }
+    }
   }
 }
