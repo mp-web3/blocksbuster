@@ -1,7 +1,7 @@
 
 import { Inter } from 'next/font/google'
 import text from '@/i18n/en/text.json'
-import './globals.css'
+import '@/app/css/globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -29,7 +29,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/BlocksBuster.ico" />
+        <link rel="icon" href="/favicon.ico" />
       </head>
       <body className={inter.className}>{children}</body>
     </html>

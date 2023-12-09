@@ -3,7 +3,6 @@ import useVideos from '@/app/custom-hooks/useVideos';
 
 const VideoList = () => {
     const { videos, loading, error } = useVideos();
-    console.log(videos)
 
     if (loading) return <div>Loading...</div>;
     if (error) return <div>Error... {error}</div>;

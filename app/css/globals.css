@@ -19,7 +19,6 @@
   --body-small-letter-spacing: 0.4px;
 
   /* MOBILE FONTS */
-
   --mobile-headline-extralarge-size: 57px;
   --mobile-headline-extralarge-line-height: 64px;
   --mobile-headline-extralarge-weight: 500;
@@ -279,7 +278,7 @@ p {
 .content-container {
   position: relative;
   overflow: hidden;
-  padding-bottom: 56.25%; /* 16:9 aspect ratio (9 / 16 * 100%) */
+  padding-bottom: 56.25%;
 }
 
 .content-container img {
@@ -305,7 +304,7 @@ p {
   background-color: var(--primary-card);
   color: var(--on-primary-card);
   text-align: center;
-  justify-content: end;
+  justify-content: flex-end;
   padding: 20px;
   bottom: 0;
   width: 100%;
