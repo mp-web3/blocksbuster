@@ -1,4 +1,9 @@
+import { format } from "date-fns";
+
 const VideoCard = ({ video }) => {
+  
+  const formattedDate = format(new Date(video.publishedAt), "d MMMM yyyy");
+
   return (
     <div className="card col-span-4" key={video.id}>
       <div className="content-container">
@@ -11,7 +16,7 @@ const VideoCard = ({ video }) => {
       <h3>{video.title}</h3>
       <p>{video.description}</p>
       <h5>
-        {video.publishedAt} | {video.channel}
+        {formattedDate} | {video.channel}
       </h5>
     </div>
   );

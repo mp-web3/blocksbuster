@@ -1,4 +1,9 @@
+import { format } from "date-fns";
+
 const ArticleCard = ({ article }) => {
+
+  const formattedDate = format(new Date(article.publishedAt), "d MMMM yyyy");
+
   return (
     <div className="card col-span-4">
       <div className="content-container">
@@ -13,7 +18,7 @@ const ArticleCard = ({ article }) => {
       </a>
       <p>{article.description}</p>
       <h5>
-        {article.publishedAt} | {article.author}
+        {formattedDate} | {article.author}
       </h5>
     </div>
   );
