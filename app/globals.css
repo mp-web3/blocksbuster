@@ -20,10 +20,15 @@
 
   /* MOBILE FONTS */
 
+  --mobile-headline-extralarge-size: 57px;
+  --mobile-headline-extralarge-line-height: 64px;
+  --mobile-headline-extralarge-weight: 500;
+  --mobile-headline-extralarge-letter-spacing: -1px;
   --mobile-headline-large-size: 32px;
   --mobile-headline-large-line-height: 40px;
   --mobile-headline-large-weight: 900;
   --mobile-headline-large-letter-spacing: -1.25px;
+  --mobile-headline-medium-weight: 500;
   --mobile-title-extralarge-size: 20px;
   --mobile-title-extralarge-weight: 900;
   --mobile-title-extralarge-letter-spacing: -0.5px;
@@ -41,6 +46,10 @@
   --mobile-title-small-weight: 600;
 
   /* DESKTOP FONTS */
+  --desktop-headline-extralarge-size: 72px;
+  --desktop-headline-extralarge-line-height: 80px;
+  --desktop-headline-extralarge-weight: 500;
+  --desktop-headline-extralarge-letter-spacing: -1px;
   --desktop-headline-large-size: 57px;
   --desktop-headline-large-line-height: 64px;
   --desktop-headline-large-weight: 900;
@@ -86,13 +95,20 @@ main {
   flex-direction: column;
 }
 
+h1 {
+  font-size: var(--mobile-headline-extralarge-size);
+  line-height: var(--mobile-headline-extralarge-line-height);
+  font-weight: var(--mobile-headline-extralarge-weight);
+  letter-spacing: var(--mobile-headline-extralarge-letter-spacing);
+}
+
 h2 {
   color: var(--primary);
   font-size: var(--mobile-headline-large-size);
   line-height: var(--mobile-headline-large-line-height);
   font-weight: var(--mobile-headline-large-weight);
   letter-spacing: var(--mobile-headline-large-letter-spacing);
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 h3 {
@@ -191,16 +207,15 @@ p {
 
 .hero-content {
   z-index: 3;
+  width: 70%;
 }
 
-.hero-content h1 {
-  font-size: var(--desktop-headline-large-size);
-  margin-bottom: 10px;
+.hero-content h1, .hero-content p {
+  padding-bottom: var(--mobile-default-padding);
 }
 
 .hero-content p {
-  font-size: var(--body-large-size);
-  margin-bottom: 20px;
+  font-size: var(--body-extralarge-size);
 }
 
 .hero-cta {
@@ -297,6 +312,12 @@ p {
 }
 
 @media (min-width: 768px) {
+  h1 {
+    font-size: var(--desktop-headline-extralarge-size);
+    line-height: var(--desktop-headline-extralarge-line-height);
+    font-weight: var(--desktop-headline-extralarge-weight);
+    letter-spacing: var(--desktop-headline-extralarge-letter-spacing);
+  }
 
   h2 {
   font-size: var(--desktop-headline-large-size);
@@ -316,6 +337,12 @@ p {
     line-height: var(--desktop-title-small-line-height);
     font-weight: var(--desktop-title-small-weight);
     letter-spacing: var(--desktop-title-small-letter-spacing);
+  }
+
+  p {
+    font-size: var(--body-extralarge-size);
+    line-height: var(--body-extralarge-line-height);
+    letter-spacing: var(--body-extralarge-letter-spacing);
   }
 
   .section-header {
@@ -344,6 +371,10 @@ p {
   .nav-links li a {
     font-size: var(--body-extralarge-size);
     letter-spacing: var(--body-extralarge-letter-spacing);
+  }
+
+  .hero-content p {
+    font-size: var(--desktop-title-large-size);
   }
 
 }
