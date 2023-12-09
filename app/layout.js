@@ -1,3 +1,4 @@
+
 import { Inter } from 'next/font/google'
 import text from '@/i18n/en/text.json'
 import './globals.css'
@@ -27,6 +28,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/BlocksBuster.ico" />
+      </head>
       <body className={inter.className}>{children}</body>
     </html>
   )
