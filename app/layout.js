@@ -29,7 +29,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/blocksbuster.ico" />
       </head>
       <body className={inter.className}>{children}</body>
     </html>
