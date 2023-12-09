@@ -1,6 +1,17 @@
 
 {
+  "hero": {
+    "title": "Explore the World of Blockchain",
+    "subTitle": "Stay updated with the latest trends and insights"
+  },
   "header": {
+    "mainHeader": {
+      "logo": "BlocksBuster",
+      "navMenu": {
+        "articles": "Articles",
+        "videos": "Videos"
+      }
+    },
     "videoHeader": {
       "title": "Top blockchain videos",
       "subTitle": "Discover top blockchain videos curated from the best blockchain websites available on the internet and more"
@@ -9,5 +20,8 @@
       "title": "Top blockchain stories",
       "subTitle": "Discover top blockchain articles curated from the best blockchain websites available on the internet and more"
     }
+  },
+  "footer": {
+    "copyright": "© 2023 BlocksBuster. All rights reserved."
   }
 }

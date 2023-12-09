@@ -1,8 +1,9 @@
+import text from "@/i18n/en/text.json";
 const Footer = () => {
     return (
       <footer className="footer-container">
         <div className="footer-content">
-          <p>&copy; 2023 BlocksBuster. All rights reserved.</p>
+          <p>{text.footer.copyright}</p>
         </div>
       </footer>
     );

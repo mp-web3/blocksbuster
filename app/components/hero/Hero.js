@@ -1,3 +1,5 @@
+import text from "@/i18n/en/text.json";
+
 const HeroSection = () => {
     return (
       <div id="hero" className="hero-section">
@@ -5,8 +7,8 @@ const HeroSection = () => {
           <source src="/Cube-Blockchain.mp4" type="video/mp4" />
         </video>
         <div className="hero-content">
-          <h1>Explore the World of Blockchain</h1>
-          <p>Stay updated with the latest trends and insights</p>
+          <h1>{text.hero.title}</h1>
+          <p>{text.hero.subTitle}</p>
         </div>
       </div>
     );
