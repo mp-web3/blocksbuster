@@ -8,7 +8,7 @@ const SectionHeader = ({ header }) => {
   const headerClass = headerClassMap[header];
 
   return (
-    <div class={`section-header ${headerClass}`}>
+    <div className={`section-header ${headerClass}`}>
       <h2>{text.header[header].title}</h2>
       <p>{text.header[header].subTitle}</p>
     </div>
