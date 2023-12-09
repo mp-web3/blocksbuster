@@ -1,6 +1,6 @@
 const HeroSection = () => {
     return (
-      <div className="hero-section">
+      <div id="hero" className="hero-section">
         <video className="hero-background-video" autoPlay loop muted>
           <source src="/Cube-Blockchain.mp4" type="video/mp4" />
         </video>

@@ -5,6 +5,9 @@
 
 :root {
   --font-family: "Titillium Web", sans-serif;
+  --body-extralarge-size: 18px;
+  --body-extralarge-line-height: 24px;
+  --body-extralarge-letter-spacing: 0.4px;
   --body-large-size: 16px;
   --body-large-line-height: 24px;
   --body-large-letter-spacing: 0.15px;
@@ -16,10 +19,14 @@
   --body-small-letter-spacing: 0.4px;
 
   /* MOBILE FONTS */
+
   --mobile-headline-large-size: 32px;
   --mobile-headline-large-line-height: 40px;
   --mobile-headline-large-weight: 900;
   --mobile-headline-large-letter-spacing: -1.25px;
+  --mobile-title-extralarge-size: 20px;
+  --mobile-title-extralarge-weight: 900;
+  --mobile-title-extralarge-letter-spacing: -0.5px;
   --mobile-title-large-size: 16px;
   --mobile-title-large-line-height: 24px;
   --mobile-title-large-letter-spacing: 0px;
@@ -37,7 +44,11 @@
   --desktop-headline-large-size: 57px;
   --desktop-headline-large-line-height: 64px;
   --desktop-headline-large-weight: 900;
-  --desktop-headline-large-letter-spacing: -1.25px;
+  --desktop-headline-large-letter-spacing: -1px;
+  --desktop-title-large-size: 30px;
+  --desktop-title-large-line-height: 36px;
+  --desktop-title-large-weight: 900;
+  --desktop-title-large-letter-spacing: -1.25px;
   --desktop-title-medium-size: 20px;
   --desktop-title-medium-line-height: 26px;
   --desktop-title-medium-weight: 700;
@@ -110,42 +121,51 @@ p {
   position: fixed;
   display: flex;
   width: 100%;
+  min-height: 40px;
   align-items: center;
   justify-content: space-between;
   padding: 0 var(--mobile-default-padding);
-  background-color: rgba(19, 19, 19, 0); /* Transparent when not scrolled */
+  background-color: rgba(19, 19, 19, 0.2);
   transition: background-color 0.3s ease, padding 0.3s ease;
   z-index: 10;
 }
 
 .header-container.scrolled {
-  background-color: rgba(19, 19, 19, 0.8);  /* Semi-transparent when scrolled */
-  padding: 0 var(--desktop-default-padding);
+  background-color: rgba(19, 19, 19, 0.8);
+  padding: 0 var(--mobile-default-padding);
 }
 
 .nav-bar {
-  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .logo {
-  font-size: var(--mobile-title-large-size);
-  font-weight: var(--mobile-title-large-weight);
-  color: var(--on-primary-card);
+  font-size: var(--mobile-title-extralarge-size);
+  font-weight: var(--mobile-title-extralarge-weight);
+  letter-spacing: var(--mobile-title-extralarge-letter-spacing);
+  color: var(--secondary);
 }
 
 .nav-links {
+  width: 100%;
   list-style: none;
   display: flex;
-  gap: var(--mobile-default-gap);
+  flex-direction: row;
+  gap: calc(var(--mobile-default-gap)*3);
 }
 
 .nav-links li a {
   color: var(--on-primary-card);
   text-decoration: none;
-  font-size: var(--body-medium-size);
+  font-size: var(--body-large-size);
+  letter-spacing: var(--body-large-letter-spacing);
+  font-weight: 600;
+}
+
+.nav-links li a:hover {
+  color: var(--secondary);
 }
 
 .hero-section {
@@ -264,9 +284,13 @@ p {
 }
 
 .footer-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 150px;
   background-color: var(--primary-card);
   color: var(--on-primary-card);
   text-align: center;
+  justify-content: end;
   padding: 20px;
   bottom: 0;
   width: 100%;
@@ -308,19 +332,18 @@ p {
 
   .header-container {
     padding: 0 var(--desktop-default-padding);
+    min-height: 65px;
   }
 
   .logo {
-    font-size: var(--desktop-title-medium-size);
+    font-size: var(--desktop-title-large-size);
+    letter-spacing: var(--desktop-title-large-letter-spacing);
+    font-weight: var(--desktop-title-large-weight);
   }
 
   .nav-links li a {
-    font-size: var(--body-large-size);
-  }
-
-  .nav-links {
-    display: flex;
-    flex-direction: column;
+    font-size: var(--body-extralarge-size);
+    letter-spacing: var(--body-extralarge-letter-spacing);
   }
 
 }
