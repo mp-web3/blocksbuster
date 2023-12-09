@@ -1,13 +1,14 @@
-
 import { Inter } from 'next/font/google'
 import text from '@/i18n/en/text.json'
 import '@/app/css/globals.css'
+
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
   title: text.metadata.title,
   description: text.metadata.description,
+  metadataBase: process.env.NEXT_PUBLIC_BASE_URL,
   openGraph: {
     title: text.metadata.og.title,
     description: text.metadata.og.description,
@@ -29,7 +30,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/blocksbuster.ico" />
       </head>
       <body className={inter.className}>{children}</body>
     </html>
