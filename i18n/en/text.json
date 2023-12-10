@@ -32,7 +32,7 @@
       "title": "BlocksBuster - Your Gateway to Blockchain Trends",
       "description": "Explore the latest in blockchain technology with BlocksBuster.",
       "siteName": "BlocksBuster",
-      "url": "http://localhost:3000/",
+      "url": "https://blocksbuster-mattias-projects-ae47be48.vercel.app/",
       "type": "website",
       "locale": "en_US",
       "imageMain": {
