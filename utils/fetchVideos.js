@@ -1,3 +1,4 @@
+/*
 const axios = require("axios");
 const { db, connectToMongoDB } = require("./db");
 
@@ -44,3 +45,4 @@ async function fetchVideos() {
 }
 
 module.exports = fetchVideos;
+*/
