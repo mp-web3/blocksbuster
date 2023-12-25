@@ -2,9 +2,7 @@ import ArticleCard from './ArticleCard';
 import useArticles from '@/app/custom-hooks/useArticles';
 
 const ArticleList = () => {
-    const { articles, loading, error } = useArticles(
-      process.env.NEXT_PUBLIC_GNEWS_API_KEY
-    );
+    const { articles, loading, error } = useArticles();
 
     if (loading) return <div>Loading...</div>;
     if (error) return <div>Error... {error}</div>;

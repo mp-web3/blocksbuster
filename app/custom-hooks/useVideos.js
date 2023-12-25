@@ -11,7 +11,7 @@ const useVideos = () => {
     const fetchVideos = async () => {
       try {
         const response = await axios.get(
-          "/api/youtube-videos"
+          "https://blocksbuster-backend.vercel.app/api/videos"
         );
         const videos = response.data;
 
