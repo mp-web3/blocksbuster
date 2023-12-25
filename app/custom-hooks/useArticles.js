@@ -11,7 +11,7 @@ const useArticles = () => {
     const fetchArticles = async () => {
       try {
         const response = await axios.get(
-          "/api/gnews-articles"
+          "https://blocksbuster-backend.vercel.app/api/news"
         );
           const articles = response.data;
           
